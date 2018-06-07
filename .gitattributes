@@ -1,0 +1,35 @@
+# Auto detect text files and perform LF normalization
+* binary diff
+
+*.1 binary
+*.2 binary
+*.6 binary
+*.ai binary
+*.cpf binary
+*.dat eol=crlf text diff
+*.dll binary
+*.editorconfig eol=lf text diff
+*.esd binary
+*.exe binary
+*.gitattributes eol=lf text diff
+*.gitignore eol=lf text diff
+*.idx binary
+*.ini eol=crlf text diff
+*.log binary
+*.lua eol=lf text diff
+*.Lua eol=lf text diff
+*.md binary diff
+*.nav binary
+*.ObjRegion binary
+*.pack binary
+*.path binary
+*.Patrolpoint binary
+*.preload eol=crlf text diff
+*.sample binary
+*.scn eol=crlf text diff
+*.SED eol=crlf text diff
+*.sh eol=lf text diff
+*.so binary
+*.stall binary
+*.txt eol=crlf text diff
+*.zip binary

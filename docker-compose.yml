@@ -1,22 +1,51 @@
-version: '2'
+version: '3'
 
 services:
-  ubuntu:
+  gs:
     build:
-      context: ./ubuntu
+      context: ./gameserver
       dockerfile: Dockerfile
     ports:
-      - "12680:12680" # Billing port
-      - "" # Server port (serverlist.txt)
-  mysql:
+      - "7384:7384" # Server port (serverlist.txt)
+      - "3731:3731"
+    volumes:
+      - ./workspace/server:/home/tlbb
+      - ./gameserver/config/odbc.ini:/etc/odbc.ini
+    links:
+      - tlbbdb
+      - webdb
+    restart: always
+    ulimits:
+      nproc: 65535
+      nofile:
+        soft: 20000
+        hard: 40000
+
+  tlbbdb:
     build:
-      context: ./mysql
+      context: ./tlbbdb
+      dockerfile: Dockerfile
+    # ports:
+    #   - "3306:3306"
+    volumes:
+      - ./tlbbdb/database:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: "tlbb1234"
+      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+      MYSQL_DATABASE: "tlbbdb"
+    restart: always
+
+  webdb:
+    build:
+      context: ./webdb
       dockerfile: Dockerfile
     ports:
       - "3306:3306"
     volumes:
-      - ./mysql/database:/var/lib/mysql
+      - ./webdb/database:/var/lib/mysql
     environment:
       MYSQL_ROOT_PASSWORD: "tlbb1234"
       MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+      MYSQL_DATABASE: "web"
+
 

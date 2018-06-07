@@ -1,0 +1,6 @@
+# Auto detect text files and perform LF normalization
+*.txt text eol=crlf
+*.ini text eol=crlf
+*.lua text eol=crlf
+*.cpf binary
+
