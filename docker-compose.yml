@@ -25,8 +25,8 @@ services:
     build:
       context: ./tlbbdb
       dockerfile: Dockerfile
-    # ports:
-    #   - "3306:3306"
+    ports:
+      - "6306:3306"
     volumes:
       - ./tlbbdb/database:/var/lib/mysql
     environment:
