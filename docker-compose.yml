@@ -11,11 +11,17 @@ services:
     volumes:
       - ./workspace/server:/home/tlbb
       - ./gameserver/config/odbc.ini:/etc/odbc.ini
+      - /etc/localtime:/etc/localtime:ro
+      - /etc/timezone:/etc/timezone:ro
     links:
       - tlbbdb
       - webdb
-    restart: always
+    environment:
+      - SET_CONTAINER_TIMEZONE=true
+    cap_add:
+      - ALL
     privileged: true
+    restart: always
 
   webdb:
     build:
