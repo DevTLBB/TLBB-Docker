@@ -11,8 +11,6 @@ services:
     volumes:
       - ./workspace/server:/home/tlbb
       - ./gameserver/config/odbc.ini:/etc/odbc.ini
-      - /etc/localtime:/etc/localtime:ro
-      - /etc/timezone:/etc/timezone:ro
     links:
       - tlbbdb
       - webdb
