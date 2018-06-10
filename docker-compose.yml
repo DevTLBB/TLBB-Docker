@@ -19,7 +19,7 @@ services:
     cap_add:
       - ALL
     privileged: true
-    restart: always
+    restart: ${RESTART}
 
   webdb:
     build:
@@ -33,7 +33,7 @@ services:
       MYSQL_ROOT_PASSWORD: "tlbb1234"
       MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
       MYSQL_DATABASE: "web"
-    restart: always
+    restart: ${RESTART}
 
   tlbbdb:
     build:
@@ -47,5 +47,5 @@ services:
       MYSQL_ROOT_PASSWORD: "tlbb1234"
       MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
       MYSQL_DATABASE: "tlbbdb"
-    restart: always
+    restart: ${RESTART}
 
