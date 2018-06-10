@@ -1,0 +1,30 @@
+root = true
+
+[*]
+end_of_line = LF
+charset = utf-8
+indent_size = 2
+indent_style = space
+trim_trailing_whitespace = true
+
+[*.{cpp,h,hpp,js,jsx,php,py,vim,go,scss}]
+max_line_length = 80
+insert_final_newline = true
+
+; Tab indent
+[Makefile]
+indent_style = tab
+indent_size = 4
+
+[.gitmodules]
+indent_style = tab
+indent_size = 4
+
+[*.{html,phtml,ctp,css}]
+; indent_style = tab
+; indent_size = 4
+insert_final_newline = false
+
+[*.css]
+insert_final_newline = true
+
