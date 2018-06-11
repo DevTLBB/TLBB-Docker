@@ -2,6 +2,9 @@ main:
 	cp -f env .env
 	docker-compose up --build -d
 
+config:
+	cp -f gameserver/config/ServerInfo.ini workspace/server/Server/Config/
+
 e.sv:
 	docker-compose exec gs bash
 
