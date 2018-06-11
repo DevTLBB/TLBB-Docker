@@ -5,6 +5,18 @@ main:
 e.sv:
 	docker-compose exec gs bash
 
-restart:
-	docker-compose restart
+restart: gs.script.chmod
+	cd gameserver/scripts && \
+		./restart
+
+stop: gs.script.chmod
+	cd gameserver/scripts && \
+		./stop
+
+run: gs.script.chmod
+	cd gameserver/scripts && \
+		./run
+
+gs.script.chmod:
+	chmod -R +x gameserver/scripts
 
