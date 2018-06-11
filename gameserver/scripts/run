@@ -1,0 +1,5 @@
+#!/bin/bash
+
+cd ../..
+docker-compose exec gs bash -c 'cd /home/tlbb && ./run.sh'
+
